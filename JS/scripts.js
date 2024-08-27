@@ -50,10 +50,12 @@ keys.addEventListener('click', (e) => {
             action === 'divide'
         ) {
 
-            calculator.dataset.firstValue = displayedNum
-            calculator.dataset.operator = action
+            
             key.classList.add('is-depressed')
             calculator.dataset.previousKeyType = 'operator'
+
+            calculator.dataset.firstValue = displayedNum
+            calculator.dataset.operator = action
 
             
         }
