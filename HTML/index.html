@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Declara que este é um documento HTML5 -->
     <meta charset="UTF-8">
+    <!-- Define o conjunto de caracteres como UTF-8, que suporta a maioria dos caracteres internacionais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o viewport para garantir que a página seja exibida corretamente em dispositivos móveis -->
     <title>Calculadora</title>
+    <!-- Define o título da página que aparece na aba do navegador -->
     <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Vincula o arquivo CSS externo que contém o estilo da calculadora -->
     <script src="../JS/scripts.js" defer></script>
+    <!-- Vincula o arquivo JavaScript externo que contém a funcionalidade da calculadora. O atributo defer garante que o script seja carregado após o HTML ser analisado -->
 </head>
 <body>
 
+    <!-- Contêiner principal para centralizar o conteúdo da página -->
     <div class="container">
+        <!-- Div para a calculadora -->
         <div class="calculator">
+            <!-- Display da calculadora, onde os números e resultados são exibidos -->
             <div class="calculator__display">0</div>
     
+            <!-- Contêiner para as teclas da calculadora -->
             <div class="calculator__keys">
-            <button class="key--operator" data-action="add">+</button>
-            <button class="key--operator" data-action="subtract">-</button>
-            <button class="key--operator" data-action="multiply">&times;</button>
-            <button class="key--operator" data-action="divide">÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>0</button>
-            <button data-action="decimal">.</button>
-            <button data-action="clear">AC</button>
-            <button class="key--equal" data-action="calculate">=</button>
+                <!-- Botões de operação com data-action para identificar a ação no JavaScript -->
+                <button class="key--operator" data-action="add">+</button>
+                <button class="key--operator" data-action="subtract">-</button>
+                <button class="key--operator" data-action="multiply">&times;</button>
+                <button class="key--operator" data-action="divide">÷</button>
+                <!-- Botões numéricos -->
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>0</button>
+                <!-- Botões adicionais para decimal e limpar -->
+                <button data-action="decimal">.</button>
+                <button data-action="clear">AC</button>
+                <!-- Botão para calcular o resultado -->
+                <button class="key--equal" data-action="calculate">=</button>
             </div>
         </div>
-        </div>
+    </div>
 
-    
 </body>
 </html>
