@@ -2,6 +2,26 @@ const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.calculator__keys')
 const display = document.querySelector('.calculator__display')
 
+//Função para calcular
+const calculate = (n1, operator, n2) => {
+    let result = ''
+
+    if(operator === 'add') {
+        result = parseFloat(n1) + parseFloat(n2)
+    } else if(operator === 'subtract') {
+        result = parseFloat(n1) - parseFloat(n2)
+    } else if(operator === 'multiply') {
+        result = parseFloat(n1) * parseFloat(n2)
+    } else if(operator === 'divide') {
+        result = parseFloat(n1) / parseFloat(n2)
+    }
+
+    return result
+
+}
+
+//Evento Click na calculadora
+
 keys.addEventListener('click', (e) => {
 
     if(e.target.matches('button')) {
@@ -12,9 +32,11 @@ keys.addEventListener('click', (e) => {
         const keyContent = key.textContent
         const displayedNum = display.textContent
 
+        const previousKeyType = calculator.dataset.previousKeyType
+
         if(!action) {
 
-            if(displayedNum === '0') {
+            if(displayedNum === '0' || previousKeyType === 'operator') {
                 display.textContent = keyContent
             } else {
                 display.textContent = displayedNum + keyContent
@@ -27,11 +49,17 @@ keys.addEventListener('click', (e) => {
             action === 'multiply' ||
             action === 'divide'
         ) {
-            console.log('É um operador')
+
+            calculator.dataset.firstValue = displayedNum
+            calculator.dataset.operator = action
+            key.classList.add('is-depressed')
+            calculator.dataset.previousKeyType = 'operator'
+
+            
         }
         
         if(action === 'decimal') {
-            console.log('Aqui é para decimal')
+            display.textContent = displayedNum + '.'
         }
 
         if(action === 'clear') {
@@ -39,8 +67,14 @@ keys.addEventListener('click', (e) => {
         }
 
         if(action === 'calculate') {
-            console.log('Realizar Calculo')
+            const firstValue = calculator.dataset.firstValue
+            const operator = calculator.dataset.operator
+            const secondValue = displayedNum
+
+            display.textContent = calculate(firstValue, operator, secondValue)
         }
+
+        Array.from(key.parentNode.children).forEach(k => k.classList.remove('is-depressed'))
 
     }
 
