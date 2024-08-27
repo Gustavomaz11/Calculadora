@@ -1,183 +1,158 @@
+/* Define o comportamento de box-sizing para o HTML e seus pseudo-elementos */
 html {
-    box-sizing: border-box;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-  
-  body {
-    margin: 0;
-  }
-  
-  /* Responsive Images */
-  
-  embed,
-  iframe,
-  img,
-  object,
-  video {
-    max-width: 100%;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul,
-  ol,
-  li,
-  p,
-  pre,
-  blockquote,
-  figure,
-  hr {
-    margin: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  a:focus {
-    outline: none;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    display: block;
-  }
-  
-  /* Removes all decimals and discs from lists */
-  
-  ol,
-  ul {
-    list-style: none;
-  }
-  
-  /* 
-   * Completely resets form items
-   * ----------------------------
-   * Super hard reset that removes all borders
-   * and radiuses of all form items (including
-   * checkboxes and radios)
-   */
-  
-  input,
-  textarea,
-  button {
-    border: 0;
-    border-radius: 0;
-    background-color: transparent;
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: inherit;
-    outline: none;
-    appearance: none;
-    text-align: left;
-  }
-  
-  input:hover,
-  input:active,
-  input:focus,
-  textarea:hover,
-  textarea:active,
-  textarea:focus,
-  button:hover,
-  button:active,
-  button:focus {
-    outline: none;
-  }
-  
-  :root {
-    font-family: Helvetica, Arial, sans-serif;
-  }
-  
-  html {
-    font-size: 175%;
-    font-weight: 300;
-    line-height: 1.3;
-  }
-  
-  body {
-    align-items: center;
-    background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-  }
-  
-  .container {
-    max-width: 20em;
-  }
-  
-  .container > p {
-    text-align: center;
-  }
-  
-  .calculator {
-    border-radius: 12px;
-    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-    max-width: 15em;
-    overflow: hidden;
-  }
-  
-  .calculator__display {
-    background-color: #222222;
-    color: #fff;
-    font-size: 1.714285714em;
-    padding: 0.5em 0.75em;
-    text-align: right;
-  }
-  
-  .calculator__keys {
-    background-color: #999;
-    display: grid;
-    grid-gap: 1px;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .calculator__keys > * {
-    background-color: #fff;
-    padding: 0.5em 1.25em;
-    position: relative;
-    text-align: center;
-  }
-  
-  .calculator__keys > *:active::before,
-  .calculator__keys > .is-depressed::before {
-    background-color: rgba(0, 0, 0, 0.2);
-    bottom: 0;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset;
-    content: "";
-    left: 0;
-    opacity: 0.3;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-  
-  .key--operator {
-    background-color: #eee;
-  }
-  
-  .key--equal {
-    background-image: linear-gradient(to bottom, #fe886a, #ff7033);
-    grid-column: -2;
-    grid-row: 2 / span 4;
-  }
-  
+  box-sizing: border-box; /* Faz com que o padding e a borda sejam incluídos na largura e altura total dos elementos */
+}
+
+/* Aplica box-sizing: border-box a todos os elementos e seus pseudo-elementos */
+*, *::before, *::after {
+  box-sizing: inherit; /* Herda a configuração de box-sizing do elemento pai (neste caso, border-box) */
+}
+
+/* Remove a margem padrão do body */
+body {
+  margin: 0; /* Remove a margem padrão do body para evitar espaços extras ao redor da página */
+}
+
+/* Estiliza imagens e outros elementos de mídia para serem responsivos */
+embed, iframe, img, object, video {
+  max-width: 100%; /* Faz com que o conteúdo de mídia não ultrapasse a largura de seu contêiner */
+}
+
+/* Remove margens e preenchimentos de vários elementos para garantir consistência no layout */
+h1, h2, h3, h4, h5, h6, ul, ol, li, p, pre, blockquote, figure, hr {
+  margin: 0; /* Remove a margem padrão */
+  padding-right: 0; /* Remove o preenchimento direito padrão */
+  padding-left: 0; /* Remove o preenchimento esquerdo padrão */
+}
+
+/* Remove a decoração de texto dos links */
+a {
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+}
+
+/* Remove o contorno de foco dos links */
+a:focus {
+  outline: none; /* Remove o contorno padrão quando o link recebe foco */
+}
+
+/* Garante que os elementos de cabeçalho sejam exibidos como blocos */
+h1, h2, h3, h4, h5, h6 {
+  display: block; /* Força os elementos de cabeçalho a se comportarem como elementos de bloco */
+}
+
+/* Remove os estilos de lista padrão, como números e discos */
+ol, ul {
+  list-style: none; /* Remove os marcadores ou números padrão das listas ordenadas e não ordenadas */
+}
+
+/* Reseta completamente os itens de formulário */
+input, textarea, button {
+  border: 0; /* Remove a borda padrão dos elementos de formulário */
+  border-radius: 0; /* Remove o arredondamento dos cantos dos elementos de formulário */
+  background-color: transparent; /* Remove o fundo padrão, tornando-o transparente */
+  font-size: inherit; /* Herda o tamanho da fonte do elemento pai */
+  font-family: inherit; /* Herda a família de fontes do elemento pai */
+  font-weight: inherit; /* Herda o peso da fonte do elemento pai */
+  outline: none; /* Remove o contorno padrão dos elementos de formulário */
+  appearance: none; /* Remove o estilo nativo do navegador (como bordas de input e botões) */
+  text-align: left; /* Alinha o texto à esquerda dentro dos elementos de formulário */
+}
+
+/* Remove o contorno quando os elementos de formulário são interagidos */
+input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus, button:hover, button:active, button:focus {
+  outline: none; /* Remove o contorno de foco dos elementos de formulário ao serem interagidos */
+}
+
+/* Define a família de fontes para a raiz do documento */
+:root {
+  font-family: Helvetica, Arial, sans-serif; /* Define Helvetica como a fonte primária, Arial como alternativa, e sans-serif como fallback */
+}
+
+/* Estiliza a fonte e o espaçamento para o HTML */
+html {
+  font-size: 175%; /* Define o tamanho da fonte base como 175% do tamanho padrão */
+  font-weight: 300; /* Define o peso da fonte como 300 (leve) */
+  line-height: 1.3; /* Define a altura da linha como 1.3 vezes o tamanho da fonte */
+}
+
+/* Estiliza o body da página */
+body {
+  align-items: center; /* Alinha o conteúdo do body ao centro usando Flexbox */
+  background-image: linear-gradient(236deg, #74ebd5, #acb6e5); /* Aplica um gradiente de fundo ao body */
+  display: flex; /* Usa Flexbox para layout do body */
+  height: 100vh; /* Define a altura do body como 100% da altura da viewport */
+  justify-content: center; /* Alinha o conteúdo horizontalmente ao centro */
+}
+
+/* Define a largura máxima e o alinhamento do contêiner */
+.container {
+  max-width: 20em; /* Define a largura máxima do contêiner como 20em */
+}
+
+/* Alinha o texto dos parágrafos dentro do contêiner ao centro */
+.container > p {
+  text-align: center; /* Centraliza o texto dentro dos parágrafos no contêiner */
+}
+
+/* Estiliza a calculadora */
+.calculator {
+  border-radius: 12px; /* Arredonda os cantos da calculadora */
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15); /* Adiciona uma sombra ao redor da calculadora */
+  margin-left: auto; /* Centraliza a calculadora horizontalmente */
+  margin-right: auto; /* Centraliza a calculadora horizontalmente */
+  margin-top: 2em; /* Adiciona uma margem superior para separar a calculadora do topo */
+  max-width: 15em; /* Define a largura máxima da calculadora como 15em */
+  overflow: hidden; /* Esconde qualquer conteúdo que exceda os limites da calculadora */
+}
+
+/* Estiliza o display da calculadora */
+.calculator__display {
+  background-color: #222222; /* Define a cor de fundo do display como um cinza escuro */
+  color: #fff; /* Define a cor do texto do display como branco */
+  font-size: 1.714285714em; /* Define o tamanho da fonte do display */
+  padding: 0.5em 0.75em; /* Adiciona preenchimento ao redor do texto do display */
+  text-align: right; /* Alinha o texto do display à direita */
+}
+
+/* Estiliza o contêiner das teclas da calculadora */
+.calculator__keys {
+  background-color: #999; /* Define a cor de fundo das teclas como cinza */
+  display: grid; /* Usa grid layout para as teclas */
+  grid-gap: 1px; /* Define o espaço entre as teclas */
+  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas de tamanho igual no grid */
+}
+
+/* Estiliza todas as teclas dentro do contêiner */
+.calculator__keys > * {
+  background-color: #fff; /* Define a cor de fundo das teclas como branco */
+  padding: 0.5em 1.25em; /* Adiciona preenchimento ao redor do texto das teclas */
+  position: relative; /* Define a posição das teclas como relativa para posicionar os pseudo-elementos */
+  text-align: center; /* Alinha o texto das teclas ao centro */
+}
+
+/* Adiciona um efeito visual quando as teclas são pressionadas ou estão ativas */
+.calculator__keys > *:active::before,
+.calculator__keys > .is-depressed::before {
+  background-color: rgba(0, 0, 0, 0.2); /* Define uma cor de fundo semi-transparente para o efeito visual */
+  bottom: 0; /* Posiciona o efeito visual na parte inferior da tecla */
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset; /* Adiciona uma sombra interna para o efeito de pressão */
+  content: ""; /* Define o conteúdo do pseudo-elemento como vazio */
+  left: 0; /* Posiciona o efeito visual na parte esquerda da tecla */
+  opacity: 0.3; /* Define a opacidade do efeito visual */
+  position: absolute; /* Posiciona o efeito visual de forma absoluta dentro da tecla */
+  right: 0; /* Posiciona o efeito visual na parte direita da tecla */
+  top: 0; /* Posiciona o efeito visual na parte superior da tecla */
+  z-index: 1; /* Define a ordem de empilhamento para garantir que o efeito esteja acima do texto da tecla */
+}
+
+/* Estiliza as teclas de operação com uma cor de fundo específica */
+.key--operator {
+  background-color: #eee; /* Define a cor de fundo das teclas de operação como um cinza claro */
+}
+
+/* Estiliza a tecla de igual com um gradiente de fundo e a posiciona no layout da grid */
+.key--equal {
+  background-image: linear-gradient(to bottom, #fe886a, #ff7033); /* Aplica um gradiente de fundo laranja */
+  grid-column: -2; /* Faz com que a tecla ocupe a segunda coluna a partir da direita */
+  grid-row: 2 / span 4; /* Faz com que a tecla ocupe 4 linhas verticalmente */
+}
